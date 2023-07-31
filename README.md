@@ -13,8 +13,8 @@ Make sure you have the following prerequisites installed on your system:
 1. Clone the repository to your local machine.
 2. Open a terminal and navigate to the directory containing the script.
 3. Make the script executable by running the following command: 
-`chmod +x service-management.sh`
-4. Run the script by executing the following command: `./service-management.sh`
+`chmod +x restart-services.sh`
+4. Run the script by executing the following command: `./restart-services.sh`
 
 ## Customization
 
