@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
-# Define the names of the services you want to manage
-services=("memcached.service" "httpd.service" "mysql.service" "mysqld.service")
+# Load the list of the names of the services you want to manage
+services=($(cat services.conf))
 
 # Function to check the status of a service
 check_service_status() {
