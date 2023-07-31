@@ -9,9 +9,9 @@ services=($(cat restart-services.conf))
 # Check the current CPU 5-minute load average
 load_average=$(uptime | awk '{gsub(",", "", $10); print $10}')
 
-if (( $(echo "$load_average > 1.00" | bc -l) )); then
-    logger "CPU load average exceeds 1.00"
-    echo "CPU load average exceeds 1.00. Continuing..."
+if (( $(echo "$load_average > 2.00" | bc -l) )); then
+    logger "CPU load average exceeds 2.00"
+    echo "CPU load average exceeds 2.00. Continuing..."
 else
     logger "CPU load average is within the limit"
     echo "CPU load average is within the limit. Exiting..."
