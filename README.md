@@ -16,6 +16,13 @@ This script is a bash script that manages the restart of multiple services. It r
 5. Run the script using the following command: `./restart_services.sh`
 6. The script will check the status of each service, restart them if needed, and log the results to `restart-services.log`.
 
+## Using crontab to run this script automatically at midnight EST time zone every day
+
+1. Open your current crontab file by running `crontab -e`
+2. Paste this at the bottom of the file: `* 0 * * * /restart_services.sh >/dev/null 2>&1`
+   Or, use this to create your own time settings: https://crontab-generator.org/
+
+
 ## Logging
 
 The script redirects its output to a log file named `restart-services.log` in the same directory. The log file contains timestamps and records the status of each service check and restart.
