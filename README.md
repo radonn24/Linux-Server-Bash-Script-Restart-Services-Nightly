@@ -1,6 +1,3 @@
-# CentOS-Restart-Services
-CentOS: Bash script to restart a few services nightly
-
 # Service Management Script
 
 This script is a bash script that manages the status and restart of multiple services. It provides functions to check the status of a service and restart a service.
