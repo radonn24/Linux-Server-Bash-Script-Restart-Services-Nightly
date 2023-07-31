@@ -10,6 +10,7 @@ check_service_status() {
         echo "$(date) - $1 is running"
     else
         echo "$(date) - Failed to get the status of $1"
+        return 1
     fi
 }
 
@@ -20,6 +21,7 @@ restart_service() {
         echo "$(date) - $1 has been restarted"
     else
         echo "$(date) - Failed to restart $1"
+        return 1
     fi
 }
 
@@ -32,15 +34,21 @@ exec 2>&1
 
 # Check the status of services before restarting
 for service in "${services[@]}"; do
-    check_service_status "$service"
+    if ! check_service_status "$service"; then
+        echo "$(date) - Error: Failed to check the status of $service" >&2
+    fi
 done
 
 # Restart the services
 for service in "${services[@]}"; do
-    restart_service "$service"
+    if ! restart_service "$service"; then
+        echo "$(date) - Error: Failed to restart $service" >&2
+    fi
 done
 
 # Check the status of services after restarting
 for service in "${services[@]}"; do
-    check_service_status "$service"
+    if ! check_service_status "$service"; then
+        echo "$(date) - Error: Failed to check the status of $service" >&2
+    fi
 done
