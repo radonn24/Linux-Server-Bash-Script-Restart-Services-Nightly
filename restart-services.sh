@@ -1,5 +1,14 @@
 #!/usr/bin/bash
 
+# Check the current CPU 5-minute load average
+load_average=$(uptime | awk '{print $10}')
+if (( $(echo "$load_average > 1.0" | bc -l) )); then
+    echo "CPU load average exceeds 1.0. Continuing..."
+else
+    echo "CPU load average is within the limit. Exiting..."
+    exit 1
+fi
+
 # Load the list of the names of the services you want to manage
 services=($(cat services.conf))
 
