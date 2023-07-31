@@ -25,3 +25,11 @@ The script redirects its output to a log file named `restart-services.log` in th
 If any errors occur during the status check or restart process, error messages will be logged to `restart-services.log`.
 
 Feel free to modify the script or the configuration file as needed for your specific use case.
+
+## License
+
+This script is licensed under the [MIT License](LICENSE).
+
+## Contributing
+
+Contributions are welcome! If you find any issues or want to suggest improvements, please create an issue or submit a pull request.
