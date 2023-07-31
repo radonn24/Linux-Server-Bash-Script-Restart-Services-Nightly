@@ -1,33 +1,34 @@
 # Service Management Script
 
-This script is a bash script that manages the status and restart of multiple services. It provides functions to check the status of a service and restart a service.
+This is a Bash script that manages the status and restarts multiple services. It allows you to define a list of services and performs the following actions for each service:
+
+- Checks the status of the service
+- Restarts the service if needed
+- Logs the status and restart actions to a file with timestamps
 
 ## Prerequisites
 
-Make sure you have the following prerequisites installed on your system:
-- Bash shell
-- Systemctl (for managing services)
+To use this script, you need to have the following:
+
+- Bash shell environment
+- Appropriate permissions to manage the services using `systemctl`
 
 ## Usage
 
-1. Clone the repository to your local machine.
-2. Open a terminal and navigate to the directory containing the script.
-3. Make the script executable by running the following command: 
-`chmod +x restart-services.sh`
-4. Run the script by executing the following command: `./restart-services.sh`
+1. Clone or download the script to your local machine.
+2. Open the terminal and navigate to the directory where the script is located.
+3. Make the script executable by running the following command: `chmod +x restart-services.sh`
+4. Modify the `services` array in the script to include the names of the services you want to manage.
+5. Run the script using the following command: `./restart-services.sh`
 
-## Customization
+## Logs
 
-You can customize the script by modifying the following variables:
-- `service1`, `service2`, `service3`, `service4`: Change the names of the services you want to manage.
-- `log_file`: Change the name or path of the log file.
-
-## Output
-
-The script redirects the output to a log file named `restart-services.log` in the same directory. The log file contains the timestamps and the status of the services before and after restarting.
+The script logs the status and restart actions for each service to a file named `restart-services.log`.
 
 ## License
 
 This script is licensed under the [MIT License](LICENSE).
 
-Feel free to modify and use this script to suit your needs.
+## Contributing
+
+Contributions are welcome! If you find any issues or want to suggest improvements, please create an issue or submit a pull request.
