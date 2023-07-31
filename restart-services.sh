@@ -1,16 +1,22 @@
 #!/usr/bin/bash
 
+# Log file
+log_file="restart-services.log"
+
+# Load the list of the names of the services you want to manage
+services=($(cat restart-services.conf))
+
 # Check the current CPU 5-minute load average
 load_average=$(uptime | awk '{print $10}')
+
 if (( $(echo "$load_average > 1.0" | bc -l) )); then
+    logger "CPU load average exceeds 1.0"
     echo "CPU load average exceeds 1.0. Continuing..."
 else
+    logger "CPU load average is within the limit"
     echo "CPU load average is within the limit. Exiting..."
     exit 1
 fi
-
-# Load the list of the names of the services you want to manage
-services=($(cat services.conf))
 
 # Function to check the status of a service
 check_service_status() {
@@ -33,9 +39,6 @@ restart_service() {
         return 1
     fi
 }
-
-# Log file
-log_file="restart-services.log"
 
 # Redirect output to the log file with timestamps
 exec >> "$log_file"
