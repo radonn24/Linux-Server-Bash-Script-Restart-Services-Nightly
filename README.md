@@ -22,7 +22,6 @@ This script is a bash script that manages the restart of multiple services. It r
 2. Paste this at the bottom of the file: `* 0 * * * /restart_services.sh >/dev/null 2>&1`
    Or, use this to create your own time settings: https://crontab-generator.org/
 
-
 ## Logging
 
 The script redirects its output to a log file named `restart-services.log` in the same directory. The log file contains timestamps and records the status of each service check and restart.
