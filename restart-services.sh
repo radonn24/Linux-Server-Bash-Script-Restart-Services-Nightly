@@ -9,13 +9,21 @@ service4="mysqld.service"
 # Function to check the status of a service
 check_service_status() {
     echo "$(date) - Checking the status of $1"
-    systemctl status "$1"
+    if systemctl status "$1"; then
+        echo "$(date) - $1 is running"
+    else
+        echo "$(date) - Failed to get the status of $1"
+    fi
 }
 
 # Function to restart a service
 restart_service() {
     echo "$(date) - Restarting $1"
-    systemctl restart "$1"
+    if systemctl restart "$1"; then
+        echo "$(date) - $1 has been restarted"
+    else
+        echo "$(date) - Failed to restart $1"
+    fi
 }
 
 # Log file
