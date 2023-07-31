@@ -1,11 +1,10 @@
-#!/bin/bash
+#!/usr/bin/bash
 
 # Define the names of the services you want to manage
 service1="memcached.service"
 service2="httpd.service"
 service3="mysql.service"
-service3="mysqld.service"
-
+service4="mysqld.service"
 
 # Function to check the status of a service
 check_service_status() {
