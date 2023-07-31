@@ -1,4 +1,4 @@
-# Service Restart Script
+# Linux Server Bash Script: Restart Services Nightly
 
 This script is a bash script that manages the restart of multiple services. It reads the names of the services from a configuration file, checks the status of each service, restarts them if needed, and then checks their status again. The output of the script is redirected to a log file with timestamps. Any errors that occur during the process are also logged.
 
