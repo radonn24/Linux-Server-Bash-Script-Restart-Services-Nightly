@@ -14,8 +14,10 @@ if (( $(echo "$load_average > 2.00" | bc -l) )); then
     echo "CPU load average exceeds 2.00. Continuing..."
 else
     logger "CPU load average is within the limit"
+    # Include the load average in output
+    echo "Load average: $load_average"
     echo "CPU load average is within the limit. Exiting..."
-    exit 1
+    # exit 1
 fi
 
 # Function to check the status of a service
